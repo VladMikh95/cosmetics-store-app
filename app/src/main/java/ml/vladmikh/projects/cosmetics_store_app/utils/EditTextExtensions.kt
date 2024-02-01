@@ -2,6 +2,7 @@ package ml.vladmikh.projects.cosmetics_store_app.utils
 
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import androidx.core.content.ContextCompat
@@ -42,9 +43,11 @@ fun EditText.setCyrillicValidation(textInputLayout: TextInputLayout,
 
         override fun afterTextChanged(p0: Editable?) {
             if (isCyrillicValid(p0.toString())) {
-               textInputLayout.boxBackgroundColor =
+                textInputLayout.boxBackgroundColor =
                     context?.let { ContextCompat.getColor(it, R.color.light_grey) }!!
-
+                Log.i("abc1", editText1.text.toString())
+                Log.i("abc2", editText2.text.toString())
+                Log.i("abc3", editText3.text.toString())
                     if (!editText1.text.isNullOrEmpty() && !editText2.text.isNullOrEmpty() && isCorrectNumber(editText3.text.toString())) {
                         button.isEnabled = true
                         button.setBackgroundResource(R.drawable.button_pink_drawable)

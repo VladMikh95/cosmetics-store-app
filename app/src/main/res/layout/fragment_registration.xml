@@ -99,6 +99,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/_10sp"
                 android:textColor="@color/text_grey"
+                android:layout_marginTop="@dimen/_16dp"
                 android:text="@string/agreement"
                 app:layout_constraintBottom_toTopOf="@id/textViewLinkPolicy"
                 app:layout_constraintStart_toStartOf="parent"

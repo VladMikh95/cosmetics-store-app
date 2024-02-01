@@ -42,6 +42,8 @@ class RegistrationFragment : Fragment() {
         binding.buttonRegistration.isEnabled = false
 
         binding.editTextName.bindTextTwoWay(viewModel.editTextName, viewLifecycleOwner)
+        binding.editTextSurname.bindTextTwoWay(viewModel.editTextSurname, viewLifecycleOwner)
+        binding.editTextPhoneNumber.bindTextTwoWay(viewModel.editTextPhoneNumber, viewLifecycleOwner)
 
         binding.editTextName.setCyrillicValidation(binding.textInputLayoutName,
             binding.editTextName,
@@ -54,8 +56,12 @@ class RegistrationFragment : Fragment() {
             binding.editTextPhoneNumber,
             binding.buttonRegistration)
 
-        binding.editTextPhoneNumber.setText("+7 *** ***-**-**")
-        binding.editTextPhoneNumber.addTextChangedListener(PhoneNumberMask(binding.editTextPhoneNumber){})
+        binding.editTextPhoneNumber.setText(PhoneNumberMask.MASK)
+        binding.editTextPhoneNumber.addTextChangedListener(
+            PhoneNumberMask(binding.editTextName,
+                binding.editTextSurname,
+                binding.editTextPhoneNumber,
+                binding.buttonRegistration){})
 
         binding.buttonRegistration.setOnClickListener {
             Log.i("abc", "All is good")

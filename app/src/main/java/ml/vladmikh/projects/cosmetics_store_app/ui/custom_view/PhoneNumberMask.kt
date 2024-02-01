@@ -2,12 +2,22 @@ package ml.vladmikh.projects.cosmetics_store_app.ui.custom_view
 
 import android.text.Editable
 import android.text.TextWatcher
+import android.widget.Button
 import android.widget.EditText
+import ml.vladmikh.projects.hotel_app.R
 
-class PhoneNumberMask(private val editText: EditText, private val saveDate: (phoneNumber: String) -> Unit) :
+class PhoneNumberMask(private val editText1: EditText,
+                      private val editText2: EditText,
+                      private val editText3: EditText,
+                      private val button: Button,
+                      private val saveDate: (phoneNumber: String) -> Unit) :
     TextWatcher {
 
-    private val MASK = "+7 *** ***-**-**"
+
+    companion object {
+        val MASK = "+7 *** ***-**-**"
+
+    }
 
     private var mSelfChange = false
 
@@ -44,11 +54,23 @@ class PhoneNumberMask(private val editText: EditText, private val saveDate: (pho
 
         mSelfChange = true
 
-        editText.setText(MASK.replaceRange(0, resultStr.length, resultStr))
+        editText3.setText(MASK.replaceRange(0, resultStr.length, resultStr))
         saveDate(MASK.replaceRange(0, resultStr.length, resultStr))
-        editText.setSelection(resultStr.length)
+        editText3.setSelection(resultStr.length)
 
         mSelfChange = false
 
+        if (!editText1.text.isNullOrEmpty() && !editText2.text.isNullOrEmpty() && ml.vladmikh.projects.cosmetics_store_app.utils.isCorrectNumber(
+                editText3.text.toString()
+            )
+        ) {
+            button.isEnabled = true
+            button.setBackgroundResource(R.drawable.button_pink_drawable)
+        }
+
+    }
+
+    fun isCorrectNumber(string: String): Boolean {
+        return !string.any {char -> char == '*'}
     }
 }
