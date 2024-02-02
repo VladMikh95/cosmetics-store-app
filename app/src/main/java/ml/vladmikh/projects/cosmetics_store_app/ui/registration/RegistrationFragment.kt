@@ -64,7 +64,7 @@ class RegistrationFragment : Fragment() {
                 binding.buttonRegistration){})
 
         binding.buttonRegistration.setOnClickListener {
-            Log.i("abc", "All is good")
+            viewModel.registration()
         }
     }
 }
