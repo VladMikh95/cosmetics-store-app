@@ -14,9 +14,10 @@
         android:id="@+id/mainFragment"
         android:name="ml.vladmikh.projects.cosmetics_store_app.ui.main.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" >
-        <action
-            android:id="@+id/action_mainFragment_to_registrationFragment"
-            app:destination="@id/registrationFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_main" />
+    <fragment
+        android:id="@+id/catalogFragment"
+        android:name="ml.vladmikh.projects.cosmetics_store_app.ui.catalog.CatalogFragment"
+        android:label="fragment_catalog"
+        tools:layout="@layout/fragment_catalog" />
 </navigation>
