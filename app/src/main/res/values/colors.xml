@@ -5,5 +5,7 @@
     <color name="light_grey">#FFF8F8F8</color>
     <color name="light_pink">#FFFF8AC9</color>
     <color name="text_grey">#FFA0A1A3</color>
+    <color name="text_view_dark_grey">#FF3E3E3E</color>
     <color name="pink">#FFD62F89</color>
+    <color name="orange">#FFF9A249</color>
 </resources>

@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import ml.vladmikh.projects.cosmetics_store_app.data.network.model.Item
 import ml.vladmikh.projects.cosmetics_store_app.data.network.model.ItemRemoteDataSource
 import ml.vladmikh.projects.cosmetics_store_app.data.repository.ItemRemoteDataSourceRepository
 import javax.inject.Inject
@@ -17,14 +18,19 @@ class CatalogViewModel @Inject constructor(private val repository: ItemRemoteDat
     private val _itemRemoteDataSource = MutableLiveData<ItemRemoteDataSource>()
     val itemRemoteDataSource: LiveData<ItemRemoteDataSource> get() = _itemRemoteDataSource
 
-    init {
+    fun getItem() {
         viewModelScope.launch {
-            try {
+
+           try {
                 _itemRemoteDataSource.value  = repository.getItemRemoteDataSource().body()!!
                 Log.i("abc", _itemRemoteDataSource.value.toString())
             } catch (e: Exception) {
-
+                Log.i("abc", "exc")
             }
         }
+    }
+
+    fun viewItem(item: Item) {
+
     }
 }

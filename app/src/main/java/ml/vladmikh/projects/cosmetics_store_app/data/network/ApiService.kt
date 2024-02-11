@@ -6,7 +6,7 @@ import retrofit2.http.GET
 
 interface ApiService {
 
-    @GET("v3/97e721a7-0a66-4cae-b445-83cc0bcf9010")
+    @GET("v3/ff929d4d-505f-4331-916a-dcfac127aec4")
     suspend fun getItemesRemoteDataSource(): Response<ItemRemoteDataSource>
 
 }

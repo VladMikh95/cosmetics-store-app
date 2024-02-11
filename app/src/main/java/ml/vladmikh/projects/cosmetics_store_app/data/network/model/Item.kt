@@ -5,6 +5,7 @@ data class Item(
     val description: String,
     val feedback: Feedback,
     val id: String,
+    val image_urls: List<String>,
     val info: List<Info>,
     val ingredients: String,
     val price: Price,
